@@ -302,31 +302,18 @@ for ip in ip_net.hosts():
 This project demonstrates key capabilities of our autonomous vehicle, including object detection, lane following, and real-time decision making using ROS 2.
 
 ---
-
 ## 🎥 Demo Videos
 
 ### 1️⃣ Road Driving and Obstacle Avoidance
 
-[![Watch Video 1](https://img.youtube.com/vi/VWD68wd0kpQ/maxresdefault.jpg)](https://youtu.be/VWD68wd0kpQ)
+[![Watch Video 1](https://img.youtube.com/vi/VWD68wd0kpQ/hqdefault.jpg)](https://youtu.be/VWD68wd0kpQ)
 
 ---
 
 ### 2️⃣ Lane Following with Real-Time Visualization
 
-[![Watch Video 2](https://img.youtube.com/vi/eUPuIBEQAgQ/maxresdefault.jpg)](https://youtu.be/eUPuIBEQAgQ)
+[![Watch Video 2](https://img.youtube.com/vi/eUPuIBEQAgQ/hqdefault.jpg)](https://youtu.be/eUPuIBEQAgQ)
 
 ---
 
-## 📦 Tech Stack
-
-- ROS 2 Humble
-- ZED 2i Camera + YOLOP
-- CAN Bus & Motor Control
-- Pure Pursuit Algorithm
-- GPS, IMU, and Odometry
-
-## ⚙️ Run Instructions
-
-```bash
-ros2 launch my_autonomous_package bringup.launch.py
 
