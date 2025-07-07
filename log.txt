@@ -1,0 +1,112 @@
+[00:00:00] Build started
+[00:00:00] git clone -q --branch=master https://github.com/al45tair/netifaces.git C:\projects\netifaces
+[00:00:01] git checkout -qf 930b9813f5ffed736a63a2ffaf9a696d120de888
+[00:00:01] Running Install scripts
+[00:00:01] %PYTHON%\python.exe -m pip install wheel .
+[00:00:02] DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+[00:00:02] Processing c:\projects\netifaces
+[00:00:03] Collecting wheel
+[00:00:03]   Downloading https://files.pythonhosted.org/packages/8c/23/848298cccf8e40f5bbb59009b32848a4c38f4e7f3364297ab3c3e2e2cd14/wheel-0.34.2-py2.py3-none-any.whl
+[00:00:03] Installing collected packages: wheel, netifaces
+[00:00:03]     Running setup.py install for netifaces: started
+[00:00:04]     Running setup.py install for netifaces: finished with status 'done'
+[00:00:04] Successfully installed netifaces-0.10.9 wheel-0.34.2
+[00:00:08] WARNING: You are using pip version 19.3.1; however, version 20.1.1 is available.
+[00:00:08] You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+[00:00:08] %PYTHON%\python.exe test.py
+[00:00:08] Found interfaces:
+[00:00:08]   {FC30FF6C-3D06-45BC-9C29-5C9583E55B6D}
+[00:00:08]   {1F777394-0B42-11E3-80AD-806E6F6E6963}
+[00:00:08]   {AFF10B87-28DE-471D-8CBA-E15E3E23751A}
+[00:00:08] 
+[00:00:08] Interface {FC30FF6C-3D06-45BC-9C29-5C9583E55B6D}:
+[00:00:08]   Address family: AF_LINK
+[00:00:08]     Address  : 00:15:5d:07:f9:85
+[00:00:08]   Address family: AF_INET
+[00:00:08]     Address  : 10.0.0.12
+[00:00:08]     Netmask  : 255.255.255.0
+[00:00:08]     Broadcast: 10.0.0.255
+[00:00:08]   Address family: AF_INET6
+[00:00:08]     Address  : fe80::74cd:bf68:e6a:29e5%27
+[00:00:08]     Netmask  : ffff:ffff:ffff:ffff::/64
+[00:00:08]     Broadcast: fe80::ffff:ffff:ffff:ffff%27
+[00:00:08] 
+[00:00:08] Interface {1F777394-0B42-11E3-80AD-806E6F6E6963}:
+[00:00:08]   Address family: AF_LINK
+[00:00:08]     Address  : 
+[00:00:08]   Address family: AF_INET
+[00:00:08]     Address  : 127.0.0.1
+[00:00:08]     Netmask  : 255.0.0.0
+[00:00:08]     Broadcast: 127.255.255.255
+[00:00:08]   Address family: AF_INET6
+[00:00:08]     Address  : ::1
+[00:00:08]     Netmask  : ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128
+[00:00:08]     Broadcast: ::1
+[00:00:08] 
+[00:00:08] Interface {AFF10B87-28DE-471D-8CBA-E15E3E23751A}:
+[00:00:08]   Address family: AF_LINK
+[00:00:08]     Address  : 00:00:00:00:00:00:00:e0
+[00:00:08]   Address family: AF_INET6
+[00:00:08]     Address  : fe80::5efe:10.0.0.12%13
+[00:00:08]     Netmask  : ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/128
+[00:00:08]     Broadcast: fe80::5efe:10.0.0.12%13
+[00:00:08] 
+[00:00:08] Found gateways:
+[00:00:08]   Family: AF_INET
+[00:00:08]     10.0.0.1 (via {FC30FF6C-3D06-45BC-9C29-5C9583E55B6D}, default)
+[00:00:08] 
+[00:00:08] Default gateways:
+[00:00:08]   AF_INET: 10.0.0.1 (via {FC30FF6C-3D06-45BC-9C29-5C9583E55B6D})
+[00:00:08] %PYTHON%\python.exe setup.py bdist_wheel
+[00:00:08] running bdist_wheel
+[00:00:08] running build
+[00:00:08] running build_ext
+[00:00:08] building 'netifaces' extension
+[00:00:08] creating build
+[00:00:08] creating build\temp.win32-2.7
+[00:00:08] creating build\temp.win32-2.7\Release
+[00:00:08] C:\Users\appveyor\AppData\Local\Programs\Common\Microsoft\Visual C++ for Python\9.0\VC\Bin\cl.exe /c /nologo /Ox /MD /W3 /GS- /DNDEBUG -DWIN32=1 -DNETIFACES_VERSION=0.10.9 -IC:\Python27\include -IC:\Python27\PC /Tcnetifaces.c /Fobuild\temp.win32-2.7\Release\netifaces.obj
+[00:00:08] netifaces.c
+[00:00:09] creating build\lib.win32-2.7
+[00:00:09] C:\Users\appveyor\AppData\Local\Programs\Common\Microsoft\Visual C++ for Python\9.0\VC\Bin\link.exe /DLL /nologo /INCREMENTAL:NO /LIBPATH:C:\Python27\libs /LIBPATH:C:\Python27\PCbuild /LIBPATH:C:\Python27\PC\VS9.0 ws2_32.lib iphlpapi.lib /EXPORT:initnetifaces build\temp.win32-2.7\Release\netifaces.obj /OUT:build\lib.win32-2.7\netifaces.pyd /IMPLIB:build\temp.win32-2.7\Release\netifaces.lib /MANIFESTFILE:build\temp.win32-2.7\Release\netifaces.pyd.manifest
+[00:00:09]    Creating library build\temp.win32-2.7\Release\netifaces.lib and object build\temp.win32-2.7\Release\netifaces.exp
+[00:00:09] installing to build\bdist.win32\wheel
+[00:00:09] running install
+[00:00:09] running install_lib
+[00:00:09] creating build\bdist.win32
+[00:00:09] creating build\bdist.win32\wheel
+[00:00:09] copying build\lib.win32-2.7\netifaces.pyd -> build\bdist.win32\wheel\.
+[00:00:09] running install_egg_info
+[00:00:09] running egg_info
+[00:00:09] creating netifaces.egg-info
+[00:00:09] writing netifaces.egg-info\PKG-INFO
+[00:00:09] writing top-level names to netifaces.egg-info\top_level.txt
+[00:00:09] writing dependency_links to netifaces.egg-info\dependency_links.txt
+[00:00:09] writing manifest file 'netifaces.egg-info\SOURCES.txt'
+[00:00:09] reading manifest file 'netifaces.egg-info\SOURCES.txt'
+[00:00:09] reading manifest template 'MANIFEST.in'
+[00:00:09] writing manifest file 'netifaces.egg-info\SOURCES.txt'
+[00:00:09] Copying netifaces.egg-info to build\bdist.win32\wheel\.\netifaces-0.10.9-py2.7.egg-info
+[00:00:09] running install_scripts
+[00:00:09] creating build\bdist.win32\wheel\netifaces-0.10.9.dist-info\WHEEL
+[00:00:09] creating 'dist\netifaces-0.10.9-cp27-cp27m-win32.whl' and adding 'build\bdist.win32\wheel' to it
+[00:00:09] adding 'netifaces.pyd'
+[00:00:09] adding 'netifaces-0.10.9.dist-info/LICENSE'
+[00:00:09] adding 'netifaces-0.10.9.dist-info/METADATA'
+[00:00:09] adding 'netifaces-0.10.9.dist-info/WHEEL'
+[00:00:09] adding 'netifaces-0.10.9.dist-info/top_level.txt'
+[00:00:09] adding 'netifaces-0.10.9.dist-info/zip-safe'
+[00:00:09] adding 'netifaces-0.10.9.dist-info/RECORD'
+[00:00:09] removing build\bdist.win32\wheel
+[00:00:09] C:\Python27\lib\site-packages\wheel\pep425tags.py:82: RuntimeWarning: Config variable 'Py_DEBUG' is unset, Python ABI tag may be incorrect
+[00:00:09]   warn=(impl == 'cp')):
+[00:00:09] C:\Python27\lib\site-packages\wheel\pep425tags.py:87: RuntimeWarning: Config variable 'WITH_PYMALLOC' is unset, Python ABI tag may be incorrect
+[00:00:09]   sys.version_info < (3, 8))) \
+[00:00:09] C:\Python27\lib\site-packages\wheel\pep425tags.py:94: RuntimeWarning: Config variable 'Py_UNICODE_SIZE' is unset, Python ABI tag may be incorrect
+[00:00:09]   sys.version_info < (3, 3))) \
+[00:00:09] Collecting artifacts...
+[00:00:09] Found artifact 'dist\netifaces-0.10.9-cp27-cp27m-win32.whl' matching 'dist\*' path
+[00:00:09] Uploading artifacts...
+[00:00:13] 
+[00:00:13] [1/1] dist\netifaces-0.10.9-cp27-cp27m-win32.whl (13,576 bytes)...100%
+[00:00:14] Build success
