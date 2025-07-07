@@ -297,44 +297,36 @@ for ip in ip_net.hosts():
 ขอบคุณสำหรับลิงก์ YouTube ครับ! ด้านล่างนี้คือโค้ด `README.md` พร้อมส่วนแสดงวิดีโอให้ผู้ใช้คลิกเพื่อเล่นวิดีโอทั้ง 2 ตัวจาก YouTube:
 
 ---
+# 🚗 Autonomous Vehicle Project Demo
 
-````markdown
-# 🎯 My Project Title
+This project demonstrates key capabilities of our autonomous vehicle, including object detection, lane following, and real-time decision making using ROS 2.
 
-This project demonstrates how to use [GitHub Packages](https://github.com/features/packages) to safely publish and manage packages alongside your code.
+---
 
 ## 🎥 Demo Videos
 
-### 📹 Demo 1: Overview
+### 1️⃣ Road Driving and Obstacle Avoidance
 
 [![Watch Video 1](https://img.youtube.com/vi/VWD68wd0kpQ/maxresdefault.jpg)](https://youtu.be/VWD68wd0kpQ)
 
 ---
 
-### 📹 Demo 2: Detailed Usage
+### 2️⃣ Lane Following with Real-Time Visualization
 
 [![Watch Video 2](https://img.youtube.com/vi/eUPuIBEQAgQ/maxresdefault.jpg)](https://youtu.be/eUPuIBEQAgQ)
 
 ---
 
-## 🚀 Getting Started
+## 📦 Tech Stack
 
-Clone this repo and start using:
+- ROS 2 Humble
+- ZED 2i Camera + YOLOP
+- CAN Bus & Motor Control
+- Pure Pursuit Algorithm
+- GPS, IMU, and Odometry
+
+## ⚙️ Run Instructions
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
-````
-
-## 📦 How to Use
-
-1. Install dependencies
-2. Configure settings
-3. Publish your package
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-```
+ros2 launch my_autonomous_package bringup.launch.py
 
