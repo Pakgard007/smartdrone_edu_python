@@ -188,95 +188,108 @@ else:
 
 ---
 
-📂 check_SN_drone.py
-📝 Description
-This script is designed to initialize a Tello EDU drone session using the FlyTello library. It's commonly used to verify if the serial number works correctly with the SDK, but the actual serial is left blank.
 
-🔧 How It Works
-python
-Copy
-Edit
+## 📂 `check_SN_drone.py`
+
+### 📝 Description
+
+This script is designed to **initialize a Tello EDU drone session** using the `FlyTello` library. It's commonly used to verify if the serial number works correctly with the SDK, but the actual serial is left blank.
+
+### 🔧 How It Works
+
+```python
 my_tello = list()
 my_tello.append('')
-A drone list is created but left empty (should contain serial number of the drone).
+```
 
-python
-Copy
-Edit
+* A drone list is created but left empty (should contain serial number of the drone).
+
+```python
 with FlyTello(my_tello) as fly:
     pass
-Initializes the drone context but performs no actions.
+```
 
-The script is wrapped in a try...except to suppress errors if the connection fails.
+* Initializes the drone context but performs no actions.
+* The script is wrapped in a `try...except` to suppress errors if the connection fails.
 
-📂 mission_multi_drone.py
-📝 Description
-An interactive command-line controller for one or more Tello EDU drones with an included predefined flight mission using Mission Pads.
+---
 
-🔧 Key Functions
-python
-Copy
-Edit
+## 📂 `mission_multi_drone.py`
+
+### 📝 Description
+
+An interactive command-line controller for one or more **Tello EDU drones** with an included predefined flight **mission using Mission Pads**.
+
+### 🔧 Key Functions
+
+```python
 my_tellos.append('0TQDG6SEDB7WCT')  # Serial number of active drone
-💻 Command Input
+```
+
+### 💻 Command Input
+
 Users can enter:
 
-t → Takeoff
+* `t` → Takeoff
+* `l` → Land
+* `b` → Battery status
+* `speed` → Speed status
+* `h` → Height
+* `bounce` → Drone bounces up/down
+* `1` → Start predefined mission
+* `q` → Quit
 
-l → Land
+### ✈️ Mission Logic (triggered by input `'1'`)
 
-b → Battery status
+* Executes synchronized flight movements using `fly.sync_these()` and `fly.jump_between_pads(...)`
+* Movement path: `m1 → m2 → m3 → m4 → m1` (square path)
+* Uses `fly.reorient()` at each pad for repositioning
+* Ends with landing
 
-speed → Speed status
+### 🧯 Safety
 
-h → Height
+Gracefully exits via `KeyboardInterrupt` and calls `fly.Stop()`.
 
-bounce → Drone bounces up/down
+---
 
-1 → Start predefined mission
+## 📂 `set_ap_edu_drone.py`
 
-q → Quit
+### 📝 Description
 
-✈️ Mission Logic (triggered by input '1')
-Executes synchronized flight movements using fly.sync_these() and fly.jump_between_pads(...)
+Sets the **WiFi Access Point (AP)** credentials for a Tello EDU drone. Useful for connecting the drone to a shared network in a classroom/lab.
 
-Movement path: m1 → m2 → m3 → m4 → m1 (square path)
+### 🔧 Core Logic
 
-Uses fly.reorient() at each pad for repositioning
-
-Ends with landing
-
-🧯 Safety
-Gracefully exits via KeyboardInterrupt and calls fly.Stop().
-
-📂 set_ap_edu_drone.py
-📝 Description
-Sets the WiFi Access Point (AP) credentials for a Tello EDU drone. Useful for connecting the drone to a shared network in a classroom/lab.
-
-🔧 Core Logic
-python
-Copy
-Edit
+```python
 fly.set_ap_wifi(ssid='staff tello SB', password='45224522')
-When user types ap, the drone is configured to connect to the specified WiFi network.
+```
 
-💻 CLI Command
-ap → Apply predefined SSID and password settings
+* When user types `ap`, the drone is configured to connect to the specified WiFi network.
 
-📂 network-scan.py
-📝 Description
-Scans the entire local subnet (192.168.0.1/24) to check which IP addresses are active — typically to detect Tello EDU drones connected to a shared WiFi.
+### 💻 CLI Command
 
-🔧 Core Logic
-python
-Copy
-Edit
+* `ap` → Apply predefined SSID and password settings
+
+---
+
+## 📂 `network-scan.py`
+
+### 📝 Description
+
+Scans the entire **local subnet (`192.168.0.1/24`)** to check which IP addresses are active — typically to detect Tello EDU drones connected to a shared WiFi.
+
+### 🔧 Core Logic
+
+```python
 for ip in ip_net.hosts():
     Popen(['ping', '-c', '1', '-W', '50', ip], stdout=PIPE)
-Pings each IP once and checks if it's online.
+```
 
-Output: "192.168.0.X is online" or "offline"
+* Pings each IP once and checks if it's online.
+* Output: `"192.168.0.X is online"` or `"offline"`
 
-✅ Use Case
-Helpful to identify drone IPs automatically before running multi-drone commands.
+### ✅ Use Case
 
+* Helpful to identify drone IPs automatically before running multi-drone commands.
+
+---
